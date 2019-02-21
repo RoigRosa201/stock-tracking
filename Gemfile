@@ -14,7 +14,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'devise-bootstrap-views'
 
-gem "stock_quote"
+gem "stock_quote", '~> 2.0.0'
 
 gem 'jquery-rails'
 # Use Puma as the app server

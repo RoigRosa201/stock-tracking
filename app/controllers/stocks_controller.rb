@@ -1,20 +1,10 @@
 class StocksController < ApplicationController
+    require 'stock_quote'
     
     def search
     if params[:stock].present?
-        Stock.new_from_lookup(params[:stock])
-        if @stock
-        render 'users/my_portfolio'
-        else
-    
-        flash[:danger] = "you have entered an incorrect stock symbol"
-        redirect_to my_portfolio_path
-        end
+     @stock_quote = StockQuote::Stock.raw_quote(params[:stock])
 
-    else
-        flash[:danger] = "you have entered and improper searching string"
-        redirect_to my_portfolio_path
     end
     end
-
 end
